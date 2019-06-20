@@ -4,7 +4,7 @@ ClusterGCN
 ============================================
 A PyTorch implementation of "Cluster-GCN: An Efficient Algorithm for Training Deep andLarge Graph Convolutional Networks" (KDD 2019).
 <p align="center">
-  <img width="800" src="clustergcn.jpg">
+  <img width="600" src="clustergcn.jpg">
 </p>
 <p align="justify">
   
