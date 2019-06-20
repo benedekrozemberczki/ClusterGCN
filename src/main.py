@@ -18,6 +18,7 @@ def main():
     clustering_machine.decompose()
     gcn_trainer = ClusterGCNTrainer(args, features, clustering_machine, target)
     gcn_trainer.train()
+    gcn_trainer.test()
 
 if __name__ == "__main__":
     main()
