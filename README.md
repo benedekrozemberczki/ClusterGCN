@@ -14,17 +14,10 @@ Graph convolutional network (GCN) has been successfully applied to many graph-ba
 
 This repository provides a PyTorch implementation of MixHop and N-GCN as described in the papers:
 
-> MixHop: Higher-Order Graph Convolutional Architectures via Sparsified Neighborhood Mixing
-> Sami Abu-El-Haija, Bryan Perozzi, Amol Kapoor, Hrayr Harutyunyan, Nazanin Alipourfard, Kristina Lerman, Greg Ver Steeg, and Aram Galstyan.
+> Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks
+> Wei-Lin Chiang, Xuanqing Liu, Si Si, Yang Li, Samy Bengio, Cho-Jui Hsieh.
 > KDD, 2019.
 > [[Paper]](https://arxiv.org/abs/1905.07953)
-
-> A Higher-Order Graph Convolutional Layer.
-> Sami A Abu-El-Haija, Bryan Perozzi, Amol Kapoor, Nazanin Alipourfard, Hrayr Harutyunyan.
-> NeurIPS, 2018.
-> [[Paper]](http://sami.haija.org/papers/high-order-gc-layer.pdf)
-
-The original TensorFlow implementation is available [[here]](https://github.com/samihaija/mixhop).
 
 ### Requirements
 The codebase is implemented in Python 3.5.2. package versions used for development are just below.
