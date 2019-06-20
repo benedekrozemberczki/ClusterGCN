@@ -14,17 +14,19 @@ class StackedGCN(torch.nn.Module):
         self.args.layers = [self.input_channels] + self.args.layers + [self.output_channels]
         for i, layer_size in enumerate(self.args.layers[:-1]):
             self.layers.append(GCNConv(self.args.layers[i],self.args.layers[i+1]))
+        self.layers = ListModule(*self.layers)
 
     def forward(self, edges, features):
         for i, _ in enumerate(self.args.layers[:-2]):
+            features = torch.nn.functional.dropout(features, p = self.args.dropout, training = self.training)
             features = torch.relu(self.layers[i](features, edges))
         features = self.layers[i+1](features, edges)
-        features = torch.clamp(features, 20, -20)
+        features = torch.clamp(features, -10, 10)
         features = torch.sigmoid(features)
         return features
         
 
-class ListModulenv(torch.nn.Module):
+class ListModule(torch.nn.Module):
     """
     Abstract list layer class.
     """
