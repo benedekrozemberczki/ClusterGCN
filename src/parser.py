@@ -30,28 +30,13 @@ def parameter_parser():
 
     parser.add_argument("--epochs",
                         type = int,
-                        default = 3,
-	                help = "Number of training epochs. Default is 2000.")
+                        default = 100,
+	                help = "Number of training epochs. Default is 5.")
 
     parser.add_argument("--seed",
                         type = int,
                         default = 42,
 	                help = "Random seed for train-test split. Default is 42.")
-
-    parser.add_argument("--early-stopping",
-                        type = int,
-                        default = 10,
-	                help = "Number of early stopping rounds. Default is 10.")
-
-    parser.add_argument("--training-size",
-                        type = int,
-                        default = 1500,
-	                help = "Training set size. Default is 1500.")
-
-    parser.add_argument("--validation-size",
-                        type = int,
-                        default = 500,
-	                help = "Validation set size. Default is 500.")
 
     parser.add_argument("--dropout",
                         type = float,
@@ -63,22 +48,22 @@ def parameter_parser():
                         default = 0.01,
 	                help = "Learning rate. Default is 0.01.")
 
-    parser.add_argument("--train-ratio",
+    parser.add_argument("--test-ratio",
                         type = float,
-                        default = 0.9,
+                        default = 0.1,
 	                help = "Weight cut-off. Default is 0.1.")
 
-    parser.add_argument("--lambd",
+    parser.add_argument("--threshold",
                         type = float,
-                        default = 0.0005,
-	                help = "L2 regularization coefficient. Default is 0.0005.")
+                        default = 0.5,
+	                help = "Weight cut-off. Default is 0.1.")
 
     parser.add_argument("--cluster-number",
                         type = int,
-                        default = 12,
+                        default = 10,
                         help = "Architecture neuron allocation budget. Default is 60.")
 
-    parser.set_defaults(layers = [64, 48, 32, 16, 8])
+    parser.set_defaults(layers = [32, 24, 16])
     
     return parser.parse_args()
 
