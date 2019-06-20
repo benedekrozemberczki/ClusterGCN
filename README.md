@@ -16,8 +16,8 @@ This repository provides a PyTorch implementation of MixHop and N-GCN as describ
 
 > MixHop: Higher-Order Graph Convolutional Architectures via Sparsified Neighborhood Mixing
 > Sami Abu-El-Haija, Bryan Perozzi, Amol Kapoor, Hrayr Harutyunyan, Nazanin Alipourfard, Kristina Lerman, Greg Ver Steeg, and Aram Galstyan.
-> ICML, 2019.
-> [[Paper]](https://arxiv.org/pdf/1905.00067.pdf)
+> KDD, 2019.
+> [[Paper]](https://arxiv.org/abs/1905.07953)
 
 > A Higher-Order Graph Convolutional Layer.
 > Sami A Abu-El-Haija, Bryan Perozzi, Amol Kapoor, Nazanin Alipourfard, Hrayr Harutyunyan.
