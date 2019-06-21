@@ -21,7 +21,7 @@ def graph_reader(path):
     :return graph: NetworkX object returned.
     """
     graph = nx.from_edgelist(pd.read_csv(path).values.tolist())
-    graph.remove_edges_from(graph.selfloop_edges())
+    #graph.remove_edges_from(graph.selfloop_edges())
     return graph
 
 def feature_reader(path):
@@ -31,6 +31,7 @@ def feature_reader(path):
     :return out_features: Dict with index and value tensor.
     """
     features = np.array(pd.read_csv(path))
+    features = features-features.mean(axis=0)
     return features
 
 def target_reader(path):

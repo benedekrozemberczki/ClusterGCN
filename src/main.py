@@ -19,6 +19,7 @@ def main():
     gcn_trainer = ClusterGCNTrainer(args, features, clustering_machine, target)
     gcn_trainer.train()
     gcn_trainer.test()
+    gcn_trainer.score()
 
 if __name__ == "__main__":
     main()

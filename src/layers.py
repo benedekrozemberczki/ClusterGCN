@@ -21,9 +21,10 @@ class StackedGCN(torch.nn.Module):
             features = torch.nn.functional.dropout(features, p = self.args.dropout, training = self.training)
             features = torch.relu(self.layers[i](features, edges))
         features = self.layers[i+1](features, edges)
-        features = torch.clamp(features, -10, 10)
+        features = torch.clamp(features, min=-15, max=15)
         features = torch.sigmoid(features)
         return features
+
         
 
 class ListModule(torch.nn.Module):

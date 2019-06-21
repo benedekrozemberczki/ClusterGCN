@@ -1,7 +1,6 @@
 import metis
 import torch
 import random
-import community
 import networkx as nx
 from sklearn.model_selection import train_test_split
 
@@ -15,9 +14,6 @@ class ClusteringMachine(object):
         if self.args.clustering_method == "metis":
             print("\nMetis graph clustering started.\n")
             self.metis_clustering()
-        elif self.args.clustering_method == "louvain":
-            print("\nLouvain graph clustering started.\n")
-            self.louvain_clustering()
         else:
             print("\nRandom graph clustering started.\n")
             self.random_clustering()
@@ -29,7 +25,7 @@ class ClusteringMachine(object):
         self.cluster_membership = {node: random.choice(self.clusters) for node in self.graph.nodes()}
 
     def metis_clustering(self):
-        (_, parts) = metis.part_graph(self.graph, self.args.cluster_number)
+        (st, parts) = metis.part_graph(self.graph, self.args.cluster_number)
         self.clusters = list(set(parts))
         self.cluster_membership = {node: membership for node, membership in enumerate(parts)}
 
@@ -45,11 +41,12 @@ class ClusteringMachine(object):
         
         for cluster in self.clusters:
             subgraph = nx.subgraph(self.graph, [node for node in self.graph.nodes() if self.cluster_membership[node] == cluster])
-            self.sg_nodes[cluster] = [node for node in subgraph.nodes()]
+            self.sg_nodes[cluster] = [node for node in sorted(subgraph.nodes())]
             mapper = {node: i for i, node in enumerate(self.sg_nodes[cluster])}
             self.sg_edges[cluster] = [[mapper[edge[0]], mapper[edge[1]]] for edge in subgraph.edges()]
-            self.sg_train_nodes[cluster], self.sg_test_nodes[cluster] = train_test_split(list(mapper.values()),test_size = self.args.test_ratio)
-
+            self.sg_train_nodes[cluster], self.sg_test_nodes[cluster] = train_test_split(list(mapper.values()), test_size = self.args.test_ratio)
+            self.sg_test_nodes[cluster] = sorted(self.sg_test_nodes[cluster])
+            self.sg_train_nodes[cluster] = sorted(self.sg_train_nodes[cluster])
 
     def transfer_edges_and_nodes(self):
         for cluster in self.clusters:
