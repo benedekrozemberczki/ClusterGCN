@@ -38,7 +38,7 @@ The code takes the **edge list** of the graph in a csv file. Every row indicates
 
 The **feature matrix** is a sparse one and it is stored as a csv.  The feature matrix is structured as:
 
-| **NODE ID**| **Target** |
+| **NODE ID**| **FEATURE ID** | **Target** |
 | --- | --- |
 | 0 | 3 |
 | 1 | 1 |
@@ -49,7 +49,7 @@ The **feature matrix** is a sparse one and it is stored as a csv.  The feature m
 
 The **target vector** is a csv with two columns and headers, the first contains the node identifiers the second the targets. This csv is sorted by node identifiers and the target column contains the class meberships indexed from zero. 
 
-| **NODE ID**| **Target** |
+| **NODE ID**|**Target** |
 | --- | --- |
 | 0 | 3 |
 | 1 | 1 |
