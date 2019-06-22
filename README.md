@@ -36,10 +36,10 @@ torch-sparse      0.2.2
 
 The code takes the **edge list** of the graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. Nodes should be indexed starting with 0. A sample graph for `Pubmed` is included in the  `input/` directory. In addition to the edgelist there is a csv file with the sparse features and another one with the target variable.
 
-The **feature matrix** is a sparse one and it is stored as a csv.  The feature matrix is structured as:
+The **feature matrix** is a sparse one and it is stored as a csv. The feature matrix csv is structured as:
 
-| **NODE ID**| **FEATURE ID** | **Target** |
-| --- | --- |
+| **NODE ID**|**FEATURE ID**|**Target** |
+| --- | --- |...|
 | 0 | 3 |0.2|
 |0|7|0.5|
 | 1 | 17|0.8 |
