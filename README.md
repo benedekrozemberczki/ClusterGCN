@@ -70,8 +70,8 @@ The training of a ClusterGCN model is handled by the `src/main.py` script which 
 ```
 #### Model options
 ```
-  --clustering-method   STR     Model variant.                 Default is `mixhop`.
-  --cluster-number      INT
+  --clustering-method   STR     Model variant.                 Default is `metis`.
+  --cluster-number      INT     Number of clusters.            Default is 10. 
   --seed                INT     Random seed.                   Default is 42.
   --epochs              INT     Number of training epochs.     Default is 2000.
   --test-size           FLOAT   Training set size.             Default is 1500.
