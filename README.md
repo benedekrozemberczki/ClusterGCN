@@ -85,7 +85,7 @@ The following commands learn a neural network and score on the test set. Trainin
 python src/main.py
 ```
 <p align="center">
-<img style="float: center;" src="mixhop.gif">
+<img style="float: center;" src="clustergcn.gif">
 </p>
 
 Training a ClusterGCN model for a 100 epochs.
