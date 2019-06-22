@@ -2,6 +2,7 @@ import torch
 import numpy as np
 import pandas as pd
 import networkx as nx
+from scipy.sparse import coo_matrix
 from texttable import Texttable
 
 def tab_printer(args):
@@ -30,7 +31,13 @@ def feature_reader(path):
     :param path: Path to the JSON file.
     :return out_features: Dict with index and value tensor.
     """
-    features = np.array(pd.read_csv(path))
+    features = pd.read_csv(path)
+    node_index = features["node"].values.tolist()
+    feature_index = features["features"].values.tolist()
+    feature_values = features["value"].values.tolist()
+    node_count = max(node_index)+1
+    feature_count = max(feature_index)+1
+    features = coo_matrix((feature_values, (node_index, feature_index)), shape=(node_count, feature_count)).toarray()
     return features
 
 def target_reader(path):
