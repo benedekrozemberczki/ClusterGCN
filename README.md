@@ -70,7 +70,7 @@ The training of a ClusterGCN model is handled by the `src/main.py` script which 
 ```
 #### Model options
 ```
-  --clustering-method   STR     Model variant.                 Default is `metis`.
+  --clustering-method   STR     Clustering method.             Default is `metis`.
   --cluster-number      INT     Number of clusters.            Default is 10. 
   --seed                INT     Random seed.                   Default is 42.
   --epochs              INT     Number of training epochs.     Default is 200.
@@ -88,7 +88,7 @@ python src/main.py
 <img style="float: center;" src="mixhop.gif">
 </p>
 
-Training a MixHop model for a 100 epochs.
+Training a ClusterGCN model for a 100 epochs.
 ```
 python src/main.py --epochs 100
 ```
@@ -96,11 +96,11 @@ Increasing the learning rate and the dropout.
 ```
 python src/main.py --learning-rate 0.1 --dropout 0.9
 ```
-Training a model with diffusion order 2:
+Training a model with diffusion a different layer structure:
 ```
 python src/main.py --layers 64 64
 ```
-Training an N-GCN model:
+Training a random clustered model:
 ```
 python src/main.py --model ngcn
 ```
