@@ -41,12 +41,12 @@ The **feature matrix** is a sparse one and it is stored as a csv. The feature ma
 | **NODE ID**|**FEATURE ID**|**Target** |
 | --- | --- |...|
 | 0 | 3 |0.2|
-|0|7|0.5|
-| 1 | 17|0.8 |
-| 1 | 4 |5.4|
-| 1 | 38 |1.3|
+| 0 | 7 | 0.5 |
+| 1 | 17 | 0.8 |
+| 1 | 4 | 5.4 |
+| 1 | 38 | 1.3 |
 | ... | ... |...|
-| n | 3 |0.9|
+| n | 3 | 0.9 |
 
 The **target vector** is a csv with two columns and headers, the first contains the node identifiers the second the targets. This csv is sorted by node identifiers and the target column contains the class meberships indexed from zero. 
 
