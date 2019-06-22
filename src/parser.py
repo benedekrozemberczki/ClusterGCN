@@ -30,7 +30,7 @@ def parameter_parser():
 
     parser.add_argument("--epochs",
                         type = int,
-                        default = 100,
+                        default = 200,
 	                help = "Number of training epochs. Default is 5.")
 
     parser.add_argument("--seed",
@@ -40,7 +40,7 @@ def parameter_parser():
 
     parser.add_argument("--dropout",
                         type = float,
-                        default = 0.1,
+                        default = 0.5,
 	                help = "Dropout parameter. Default is 0.1.")
 
     parser.add_argument("--learning-rate",
@@ -48,22 +48,17 @@ def parameter_parser():
                         default = 0.01,
 	                help = "Learning rate. Default is 0.01.")
 
-    parser.add_argument("--threshold",
-                        type = float,
-                        default = 0.5,
-	                help = "Learning rate. Default is 0.5.")
-
     parser.add_argument("--test-ratio",
                         type = float,
-                        default = 0.1,
+                        default = 0.9,
 	                help = "Weight cut-off. Default is 0.1.")
 
     parser.add_argument("--cluster-number",
                         type = int,
-                        default = 50,
+                        default = 10,
                         help = "Architecture neuron allocation budget. Default is 60.")
 
-    parser.set_defaults(layers = [512, 256, 128])
+    parser.set_defaults(layers = [16, 16, 16])
     
     return parser.parse_args()
 
