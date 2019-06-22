@@ -102,5 +102,5 @@ python src/main.py --layers 64 64
 ```
 Training a random clustered model:
 ```
-python src/main.py --model ngcn
+python src/main.py --clustering-method random
 ```
