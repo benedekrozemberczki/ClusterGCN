@@ -34,7 +34,7 @@ torch-sparse      0.2.2
 ```
 ### Datasets
 
-The code takes the **edge list** of the graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. Nodes should be indexed starting with 0. A sample graph for `Pubmed` is included in the  `input/` directory. In addition to the edgelist there is a JSON file with the sparse features and a csv with the target variable.
+The code takes the **edge list** of the graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. Nodes should be indexed starting with 0. A sample graph for `Pubmed` is included in the  `input/` directory. In addition to the edgelist there is a csv file with the sparse features and another one with the target variable.
 
 The **feature matrix** is a sparse one and it is stored as a csv.  The feature matrix is structured as:
 
@@ -69,19 +69,14 @@ Training an N-GCN/MixHop model is handled by the `src/main.py` script which prov
 ```
 #### Model options
 ```
-  --model             STR     Model variant.                 Default is `mixhop`.               
-  --seed              INT     Random seed.                   Default is 42.
-  --epochs            INT     Number of training epochs.     Default is 2000.
-  --early-stopping    INT     Early stopping rounds.         Default is 10.
-  --training-size     INT     Training set size.             Default is 1500.
-  --validation-size   INT     Validation set size.           Default is 500.
-  --learning-rate     FLOAT   Adam learning rate.            Default is 0.01.
-  --dropout           FLOAT   Dropout rate value.            Default is 0.5.
-  --lambd             FLOAT   Regularization coefficient.    Default is 0.0005.
-  --layers-1          LST     Layer sizes (upstream).        Default is [200, 200, 200]. 
-  --layers-2          LST     Layer sizes (bottom).          Default is [200, 200, 200].
-  --cut-off           FLOAT   Norm cut-off for pruning.      Default is 0.1.
-  --budget            INT     Architecture neuron budget.    Default is 60.
+  --clustering-method   STR     Model variant.                 Default is `mixhop`.
+  --cluster-number      INT
+  --seed                INT     Random seed.                   Default is 42.
+  --epochs              INT     Number of training epochs.     Default is 2000.
+  --test-size           FLOAT   Training set size.             Default is 1500.
+  --learning-rate       FLOAT   Adam learning rate.            Default is 0.01.
+  --dropout             FLOAT   Dropout rate value.            Default is 0.5.
+  --layers              LST     Layer sizes.        Default is [200, 200, 200]. 
 ```
 ### Examples
 The following commands learn a neural network and score on the test set. Training a model on the default dataset.
