@@ -46,5 +46,5 @@ def target_reader(path):
     :param path: Path to the target.
     :return target: Target vector.
     """
-    target = np.array(pd.read_csv(path)["target"])
+    target = np.array(pd.read_csv(path)["target"]).reshape(-1,1)
     return target
