@@ -2,13 +2,21 @@ import metis
 import torch
 import random
 import networkx as nx
+import numpy as np
 from sklearn.model_selection import train_test_split
 
 class ClusteringMachine(object):
      
-    def __init__(self, args, graph):
+    def __init__(self, args, graph, features, target):
         self.args = args
         self.graph = graph
+        self.features = features
+        self.target = target
+        self._set_sizes()
+
+    def _set_sizes(self):
+        self.feature_count = self.features.shape[1] 
+        self.class_count = np.max(self.target)+1
 
     def decompose(self):
         if self.args.clustering_method == "metis":
@@ -38,20 +46,26 @@ class ClusteringMachine(object):
         self.sg_edges = {}
         self.sg_train_nodes = {}
         self.sg_test_nodes = {}
-        
+        self.sg_features = {}
+        self.sg_targets = {}
         for cluster in self.clusters:
-            subgraph = nx.subgraph(self.graph, [node for node in self.graph.nodes() if self.cluster_membership[node] == cluster])
+            subgraph = self.graph.subgraph([node for node in sorted(self.graph.nodes()) if self.cluster_membership[node] == cluster])
             self.sg_nodes[cluster] = [node for node in sorted(subgraph.nodes())]
-            mapper = {node: i for i, node in enumerate(self.sg_nodes[cluster])}
-            self.sg_edges[cluster] = [[mapper[edge[0]], mapper[edge[1]]] for edge in subgraph.edges()]
+            mapper = {node: i for i, node in enumerate(sorted(self.sg_nodes[cluster]))}
+
+            self.sg_edges[cluster] = [[mapper[edge[0]], mapper[edge[1]]] for edge in subgraph.edges()] +  [[mapper[edge[1]], mapper[edge[0]]] for edge in subgraph.edges()]
             self.sg_train_nodes[cluster], self.sg_test_nodes[cluster] = train_test_split(list(mapper.values()), test_size = self.args.test_ratio)
             self.sg_test_nodes[cluster] = sorted(self.sg_test_nodes[cluster])
             self.sg_train_nodes[cluster] = sorted(self.sg_train_nodes[cluster])
+            self.sg_features[cluster] = self.features[self.sg_nodes[cluster],:]
+            self.sg_targets[cluster] = self.target[self.sg_nodes[cluster],:]
+
 
     def transfer_edges_and_nodes(self):
         for cluster in self.clusters:
             self.sg_nodes[cluster] = torch.LongTensor(self.sg_nodes[cluster])
-            self.sg_edges[cluster] = torch.LongTensor(self.sg_edges[cluster] ).view(2,-1)
+            self.sg_edges[cluster] = torch.LongTensor(self.sg_edges[cluster]).t()
             self.sg_train_nodes[cluster] = torch.LongTensor(self.sg_train_nodes[cluster])
             self.sg_test_nodes[cluster] = torch.LongTensor(self.sg_test_nodes[cluster])
-            
+            self.sg_features[cluster] = torch.FloatTensor(self.sg_features[cluster])
+            self.sg_targets[cluster] = torch.LongTensor(self.sg_targets[cluster])
