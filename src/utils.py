@@ -32,8 +32,8 @@ def feature_reader(path):
     :return out_features: Dict with index and value tensor.
     """
     features = pd.read_csv(path)
-    node_index = features["node"].values.tolist()
-    feature_index = features["features"].values.tolist()
+    node_index = features["node_id"].values.tolist()
+    feature_index = features["feature_id"].values.tolist()
     feature_values = features["value"].values.tolist()
     node_count = max(node_index)+1
     feature_count = max(feature_index)+1
@@ -46,5 +46,5 @@ def target_reader(path):
     :param path: Path to the target.
     :return target: Target vector.
     """
-    target = np.array(pd.read_csv(path))
+    target = np.array(pd.read_csv(path)["target"])
     return target
