@@ -38,7 +38,7 @@ The code takes the **edge list** of the graph in a csv file. Every row indicates
 
 The **feature matrix** is a sparse one and it is stored as a csv. The feature matrix csv is structured as:
 
-| **NODE ID**|**FEATURE ID**|**Target** |
+| **NODE ID**|**FEATURE ID**|**Value** |
 | --- | --- |---|
 | 0 | 3 |0.2|
 | 0 | 7 | 0.5 |
