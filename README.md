@@ -34,17 +34,19 @@ torch-sparse      0.2.2
 ```
 ### Datasets
 
-The code takes the **edge list** of the graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. Nodes should be indexed starting with 0. A sample graph for `Cora` is included in the  `input/` directory. In addition to the edgelist there is a JSON file with the sparse features and a csv with the target variable.
+The code takes the **edge list** of the graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. Nodes should be indexed starting with 0. A sample graph for `Pubmed` is included in the  `input/` directory. In addition to the edgelist there is a JSON file with the sparse features and a csv with the target variable.
 
-The **feature matrix** is a sparse binary one it is stored as a json. Nodes are keys of the json and feature indices are the values. For each node feature column ids are stored as elements of a list. The feature matrix is structured as:
+The **feature matrix** is a sparse one and it is stored as a csv.  The feature matrix is structured as:
 
-```javascript
-{ 0: [0, 1, 38, 1968, 2000, 52727],
-  1: [10000, 20, 3],
-  2: [],
-  ...
-  n: [2018, 10000]}
-```
+| **NODE ID**| **Target** |
+| --- | --- |
+| 0 | 3 |
+| 1 | 1 |
+| 2 | 0 |
+| 3 | 1 |
+| ... | ... |
+| n | 3 |
+
 The **target vector** is a csv with two columns and headers, the first contains the node identifiers the second the targets. This csv is sorted by node identifiers and the target column contains the class meberships indexed from zero. 
 
 | **NODE ID**| **Target** |
