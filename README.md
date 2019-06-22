@@ -40,12 +40,13 @@ The **feature matrix** is a sparse one and it is stored as a csv.  The feature m
 
 | **NODE ID**| **FEATURE ID** | **Target** |
 | --- | --- |
-| 0 | 3 |
-| 1 | 1 |
-| 2 | 0 |
-| 3 | 1 |
-| ... | ... |
-| n | 3 |
+| 0 | 3 |0.2|
+|0|7|0.5|
+| 1 | 17|0.8 |
+| 1 | 4 |5.4|
+| 1 | 38 |1.3|
+| ... | ... |...|
+| n | 3 |0.9|
 
 The **target vector** is a csv with two columns and headers, the first contains the node identifiers the second the targets. This csv is sorted by node identifiers and the target column contains the class meberships indexed from zero. 
 
@@ -59,13 +60,13 @@ The **target vector** is a csv with two columns and headers, the first contains 
 | n | 3 |
 
 ### Options
-Training an N-GCN/MixHop model is handled by the `src/main.py` script which provides the following command line arguments.
+Training a ClusterGCNmodel is handled by the `src/main.py` script which provides the following command line arguments.
 
 #### Input and output options
 ```
-  --edge-path       STR    Edge list csv.         Default is `input/cora_edges.csv`.
-  --features-path   STR    Features json.         Default is `input/cora_features.json`.
-  --target-path     STR    Target classes csv.    Default is `input/cora_target.csv`.
+  --edge-path       STR    Edge list csv.         Default is `input/edges.csv`.
+  --features-path   STR    Features json.         Default is `input/features.json`.
+  --target-path     STR    Target classes csv.    Default is `input/target.csv`.
 ```
 #### Model options
 ```
