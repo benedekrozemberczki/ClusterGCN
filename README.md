@@ -73,11 +73,11 @@ The training of a ClusterGCN model is handled by the `src/main.py` script which 
   --clustering-method   STR     Model variant.                 Default is `metis`.
   --cluster-number      INT     Number of clusters.            Default is 10. 
   --seed                INT     Random seed.                   Default is 42.
-  --epochs              INT     Number of training epochs.     Default is 2000.
-  --test-size           FLOAT   Training set size.             Default is 1500.
+  --epochs              INT     Number of training epochs.     Default is 200.
+  --test-eatio          FLOAT   Training set ratio.            Default is 0.9.
   --learning-rate       FLOAT   Adam learning rate.            Default is 0.01.
   --dropout             FLOAT   Dropout rate value.            Default is 0.5.
-  --layers              LST     Layer sizes.        Default is [200, 200, 200]. 
+  --layers              LST     Layer sizes.                   Default is [16, 16, 16]. 
 ```
 ### Examples
 The following commands learn a neural network and score on the test set. Training a model on the default dataset.
