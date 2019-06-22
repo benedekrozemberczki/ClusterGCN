@@ -12,18 +12,18 @@ class StackedGCN(torch.nn.Module):
     def setup_layers(self):
         self.layers = []
         self.args.layers = [self.input_channels] + self.args.layers + [self.output_channels]
-        for i, layer_size in enumerate(self.args.layers[:-1]):
+        for i, _ in enumerate(self.args.layers[:-1]):
             self.layers.append(GCNConv(self.args.layers[i],self.args.layers[i+1]))
         self.layers = ListModule(*self.layers)
 
     def forward(self, edges, features):
         for i, _ in enumerate(self.args.layers[:-2]):
-            features = torch.nn.functional.dropout(features, p = self.args.dropout, training = self.training)
-            features = torch.relu(self.layers[i](features, edges))
+            features = torch.nn.functional.relu(self.layers[i](features, edges))
+            if i>1:
+                features = torch.nn.functional.dropout(features, p = self.args.dropout, training = self.training)
         features = self.layers[i+1](features, edges)
-        features = torch.clamp(features, min=-15, max=15)
-        features = torch.sigmoid(features)
-        return features
+        predictions = torch.nn.functional.log_softmax(features, dim=1)
+        return predictions
 
         
 
