@@ -26,7 +26,7 @@ def parameter_parser():
     parser.add_argument("--clustering-method",
                         nargs = "?",
                         default = "metis",
-	                help = "Target classes csv.")
+	                help = "Clustering method for graph decomposition. Default is the metis procedure.")
 
     parser.add_argument("--epochs",
                         type = int,
