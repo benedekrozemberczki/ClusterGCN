@@ -39,7 +39,7 @@ class ClusteringMachine(object):
         else:
             print("\nRandom graph clustering started.\n")
             self.random_clustering()
-        self.general_cluster_membership_mapping()
+        self.general_data_partitioning()
         self.transfer_edges_and_nodes()
 
     def random_clustering(self):
@@ -57,7 +57,7 @@ class ClusteringMachine(object):
         self.clusters = list(set(parts))
         self.cluster_membership = {node: membership for node, membership in enumerate(parts)}
 
-    def general_cluster_membership_mapping(self):
+    def general_data_partitioning(self):
         self.sg_nodes = {}
         self.sg_edges = {}
         self.sg_train_nodes = {}
@@ -68,14 +68,12 @@ class ClusteringMachine(object):
             subgraph = self.graph.subgraph([node for node in sorted(self.graph.nodes()) if self.cluster_membership[node] == cluster])
             self.sg_nodes[cluster] = [node for node in sorted(subgraph.nodes())]
             mapper = {node: i for i, node in enumerate(sorted(self.sg_nodes[cluster]))}
-
             self.sg_edges[cluster] = [[mapper[edge[0]], mapper[edge[1]]] for edge in subgraph.edges()] +  [[mapper[edge[1]], mapper[edge[0]]] for edge in subgraph.edges()]
             self.sg_train_nodes[cluster], self.sg_test_nodes[cluster] = train_test_split(list(mapper.values()), test_size = self.args.test_ratio)
             self.sg_test_nodes[cluster] = sorted(self.sg_test_nodes[cluster])
             self.sg_train_nodes[cluster] = sorted(self.sg_train_nodes[cluster])
             self.sg_features[cluster] = self.features[self.sg_nodes[cluster],:]
             self.sg_targets[cluster] = self.target[self.sg_nodes[cluster],:]
-
 
     def transfer_edges_and_nodes(self):
         for cluster in self.clusters:
