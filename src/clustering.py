@@ -50,13 +50,12 @@ class ClusteringMachine(object):
         self.cluster_membership = {node: random.choice(self.clusters) for node in self.graph.nodes()}
 
     def metis_clustering(self):
+        """
+        Clustering the graph with Metis. For details see:
+        """
         (st, parts) = metis.part_graph(self.graph, self.args.cluster_number)
         self.clusters = list(set(parts))
         self.cluster_membership = {node: membership for node, membership in enumerate(parts)}
-
-    def louvain_clustering(self):
-        self.cluster_membership = community.best_partition(self.graph)
-        self.clusters = list(set(self.cluster_membership.values()))
 
     def general_cluster_membership_mapping(self):
         self.sg_nodes = {}
