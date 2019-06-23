@@ -82,7 +82,7 @@ The training of a ClusterGCN model is handled by the `src/main.py` script which 
   --cluster-number      INT     Number of clusters.            Default is 10. 
   --seed                INT     Random seed.                   Default is 42.
   --epochs              INT     Number of training epochs.     Default is 200.
-  --test-eatio          FLOAT   Training set ratio.            Default is 0.9.
+  --test-ratio          FLOAT   Training set ratio.            Default is 0.9.
   --learning-rate       FLOAT   Adam learning rate.            Default is 0.01.
   --dropout             FLOAT   Dropout rate value.            Default is 0.5.
   --layers              LST     Layer sizes.                   Default is [16, 16, 16]. 
