@@ -6,7 +6,7 @@ from clustergcn import ClusterGCNTrainer
 
 def main():
     """
-    Parsing command line parameters, reading data, fitting an NGCN and scoring the model.
+    Parsing command line parameters, reading data, graph decomposition, fitting a ClusterGCN and scoring the model.
     """
     args = parameter_parser()
     torch.manual_seed(args.seed)
