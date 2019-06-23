@@ -32,7 +32,7 @@ argparse           1.1.0
 torch              0.4.1
 torch-geometric    0.3.1
 metis              0.2a.4
-scikit-learn       
+scikit-learn       0.20
 ```
 ### Datasets
 
