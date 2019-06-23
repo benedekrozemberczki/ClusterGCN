@@ -96,7 +96,7 @@ Increasing the learning rate and the dropout.
 ```
 python src/main.py --learning-rate 0.1 --dropout 0.9
 ```
-Training a model with diffusion a different layer structure:
+Training a model with a different layer structure:
 ```
 python src/main.py --layers 64 64
 ```
