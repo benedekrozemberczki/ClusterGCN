@@ -11,10 +11,10 @@ class ClusteringMachine(object):
     """
     def __init__(self, args, graph, features, target):
         """
-        :param args:
-        :param graph:
-        :param features:
-        :param target:
+        :param args: Arguments object with parameters.
+        :param graph: Networkx Graph.
+        :param features: Feature matrix (ndarray).
+        :param target: Target vector (ndarray).
         """
         self.args = args
         self.graph = graph
