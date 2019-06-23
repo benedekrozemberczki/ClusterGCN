@@ -41,7 +41,7 @@ def parameter_parser():
     parser.add_argument("--dropout",
                         type = float,
                         default = 0.5,
-	                help = "Dropout parameter. Default is 0.1.")
+	                help = "Dropout parameter. Default is 0.5.")
 
     parser.add_argument("--learning-rate",
                         type = float,
