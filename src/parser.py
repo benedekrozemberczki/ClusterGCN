@@ -6,7 +6,7 @@ def parameter_parser():
     The default hyperparameters give a good quality representation without grid search.
     """
 
-    parser = argparse.ArgumentParser(description = "Run MixHop/N-GCN.")
+    parser = argparse.ArgumentParser(description = "Run .")
 
     parser.add_argument("--edge-path",
                         nargs = "?",
@@ -31,7 +31,7 @@ def parameter_parser():
     parser.add_argument("--epochs",
                         type = int,
                         default = 200,
-	                help = "Number of training epochs. Default is 5.")
+	                help = "Number of training epochs. Default is 200.")
 
     parser.add_argument("--seed",
                         type = int,
