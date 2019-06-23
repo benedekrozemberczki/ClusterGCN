@@ -63,6 +63,9 @@ class ClusterGCNTrainer(object):
         return prediction, target
 
     def train(self):
+        """
+        Training a model.
+        """
         print("Training started.\n")
         epochs = trange(self.args.epochs, desc = "Train Loss")
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.args.learning_rate)
@@ -80,6 +83,9 @@ class ClusterGCNTrainer(object):
             epochs.set_description("Train Loss: %g" % round(average_loss,4))
 
     def test(self):
+        """
+        Scoring the test and printing the F-1 score.
+        """
         self.model.eval()
         self.predictions = []
         self.targets = []
