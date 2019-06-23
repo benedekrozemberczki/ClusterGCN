@@ -56,7 +56,7 @@ def parameter_parser():
     parser.add_argument("--cluster-number",
                         type = int,
                         default = 10,
-                        help = "Architecture neuron allocation budget. Default is 60.")
+                        help = "Number of clusters extracted. Default is 10.")
 
     parser.set_defaults(layers = [16, 16, 16])
     
