@@ -15,6 +15,9 @@ class ClusteringMachine(object):
         self._set_sizes()
 
     def _set_sizes(self):
+        """
+        Setting the feature and class count.
+        """
         self.feature_count = self.features.shape[1] 
         self.class_count = np.max(self.target)+1
 
