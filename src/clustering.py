@@ -58,6 +58,9 @@ class ClusteringMachine(object):
         self.cluster_membership = {node: membership for node, membership in enumerate(parts)}
 
     def general_data_partitioning(self):
+        """
+        Creating data partitions and train-test splits.
+        """
         self.sg_nodes = {}
         self.sg_edges = {}
         self.sg_train_nodes = {}
