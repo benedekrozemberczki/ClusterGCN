@@ -27,9 +27,9 @@ def graph_reader(path):
 
 def feature_reader(path):
     """
-    Reading the feature matrix stored as JSON from the disk.
-    :param path: Path to the JSON file.
-    :return out_features: Dict with index and value tensor.
+    Reading the sparse feature matrix stored as csv from the disk.
+    :param path: Path to the csv file.
+    :return features: Dense matrix of features.
     """
     features = pd.read_csv(path)
     node_index = features["node_id"].values.tolist()
