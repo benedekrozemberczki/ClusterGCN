@@ -29,6 +29,12 @@ class ClusterGCNTrainer(object):
         self.model = self.model.to(self.device)
 
     def do_forward_pass(self, cluster):
+        """
+        Making a forward pass with data from a given partition.
+        :param cluster: Cluster index.
+        :return average_loss: Average loss on the cluster.
+        :return node_count: Number of nodes.
+        """
         edges = self.clustering_machine.sg_edges[cluster].to(self.device)
         macro_nodes = self.clustering_machine.sg_nodes[cluster].to(self.device)
         train_nodes = self.clustering_machine.sg_train_nodes[cluster].to(self.device)
