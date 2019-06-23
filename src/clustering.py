@@ -6,7 +6,9 @@ import networkx as nx
 from sklearn.model_selection import train_test_split
 
 class ClusteringMachine(object):
-     
+    """
+    Clustering the graph, feature set and target.
+    """
     def __init__(self, args, graph, features, target):
         self.args = args
         self.graph = graph
