@@ -1,8 +1,8 @@
 import torch
 import random
 import numpy as np
-from layers import StackedGCN
 from tqdm import trange, tqdm
+from layers import StackedGCN
 from torch.autograd import Variable
 from sklearn.metrics import f1_score
 from sklearn.metrics import accuracy_score
@@ -27,7 +27,6 @@ class ClusterGCNTrainer(object):
         target = self.clustering_machine.sg_targets[cluster].to(self.device).squeeze()
         predictions = self.model(edges, features)
         average_loss = torch.nn.functional.nll_loss(predictions[train_nodes], target[train_nodes])
-  
         node_count = train_nodes.shape[0]
         return average_loss, node_count
 
@@ -77,4 +76,3 @@ class ClusterGCNTrainer(object):
         self.predictions = np.concatenate(self.predictions).argmax(1)
         score = f1_score(self.targets, self.predictions, average="micro")
         print("\nF-1 score: {:.4f}".format(score))
- 
