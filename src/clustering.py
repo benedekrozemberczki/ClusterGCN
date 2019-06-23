@@ -1,8 +1,8 @@
 import metis
 import torch
 import random
-import networkx as nx
 import numpy as np
+import networkx as nx
 from sklearn.model_selection import train_test_split
 
 class ClusteringMachine(object):
