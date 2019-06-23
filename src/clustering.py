@@ -30,6 +30,9 @@ class ClusteringMachine(object):
         self.class_count = np.max(self.target)+1
 
     def decompose(self):
+        """
+        Decomposing the graph, partitioning the features and target, creating Torch arrays.
+        """
         if self.args.clustering_method == "metis":
             print("\nMetis graph clustering started.\n")
             self.metis_clustering()
@@ -40,6 +43,9 @@ class ClusteringMachine(object):
         self.transfer_edges_and_nodes()
 
     def random_clustering(self):
+        """
+        Random clustering the nodes.
+        """
         self.clusters = [cluster for cluster in range(self.args.cluster_number)]
         self.cluster_membership = {node: random.choice(self.clusters) for node in self.graph.nodes()}
 
