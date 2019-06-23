@@ -31,7 +31,8 @@ class StackedGCN(torch.nn.Module):
         """
         Making a forward pass.
         :param edges: Edge list LongTensor.
-        :param features: Features FLoatTensor.
+        :param features: Feature matrix input FLoatTensor.
+        :return predictions: Prediction matrix output FLoatTensor.
         """
         for i, _ in enumerate(self.args.layers[:-2]):
             features = torch.nn.functional.relu(self.layers[i](features, edges))
