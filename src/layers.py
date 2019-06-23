@@ -2,7 +2,15 @@ import torch
 from torch_geometric.nn import GCNConv
 
 class StackedGCN(torch.nn.Module):
+    """
+    Multi-layer GCN model.
+    """
     def __init__(self, args, input_channels, output_channels):
+        """
+        :param args: Arguments object.
+        :input_channels  int: Number of features.
+        :output_channels int: Number of target features. 
+        """
         super(StackedGCN, self).__init__()
         self.args = args
         self.input_channels = input_channels
@@ -10,6 +18,9 @@ class StackedGCN(torch.nn.Module):
         self.setup_layers()
 
     def setup_layers(self):
+        """
+        Creating the layes based on the args.
+        """
         self.layers = []
         self.args.layers = [self.input_channels] + self.args.layers + [self.output_channels]
         for i, _ in enumerate(self.args.layers[:-1]):
@@ -17,6 +28,9 @@ class StackedGCN(torch.nn.Module):
         self.layers = ListModule(*self.layers)
 
     def forward(self, edges, features):
+        """
+        Making a forward pass.
+        """
         for i, _ in enumerate(self.args.layers[:-2]):
             features = torch.nn.functional.relu(self.layers[i](features, edges))
             if i>1:
