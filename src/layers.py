@@ -8,8 +8,8 @@ class StackedGCN(torch.nn.Module):
     def __init__(self, args, input_channels, output_channels):
         """
         :param args: Arguments object.
-        :input_channels  int: Number of features.
-        :output_channels int: Number of target features. 
+        :input_channels: Number of features.
+        :output_channels: Number of target features. 
         """
         super(StackedGCN, self).__init__()
         self.args = args
@@ -30,6 +30,8 @@ class StackedGCN(torch.nn.Module):
     def forward(self, edges, features):
         """
         Making a forward pass.
+        :param edges: Edge list LongTensor.
+        :param features: Features FLoatTensor.
         """
         for i, _ in enumerate(self.args.layers[:-2]):
             features = torch.nn.functional.relu(self.layers[i](features, edges))
