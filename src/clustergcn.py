@@ -52,6 +52,12 @@ class ClusterGCNTrainer(object):
         return average_loss
 
     def do_prediction(self, cluster):
+        """
+        Scoring a cluster.
+        :param cluster: Cluster index.
+        :return prediction: Prediction matrix with probabilities.
+        :return target: Target vector.
+        """
         edges = self.clustering_machine.sg_edges[cluster].to(self.device)
         macro_nodes = self.clustering_machine.sg_nodes[cluster].to(self.device)
         test_nodes = self.clustering_machine.sg_test_nodes[cluster].to(self.device)
