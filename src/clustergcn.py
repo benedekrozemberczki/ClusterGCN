@@ -46,6 +46,11 @@ class ClusterGCNTrainer(object):
         return average_loss, node_count
 
     def update_average_loss(self, batch_average_loss, node_count):
+        """
+        Updating the average loss in the epoch.
+        :param batch_average_loss: Loss of the cluster. 
+        :param node_count: Number of nodes in currently processed cluster.
+        """
         self.accumulated_training_loss = self.accumulated_training_loss + batch_average_loss.item()*node_count
         self.node_count_seen = self.node_count_seen + node_count
         average_loss = self.accumulated_training_loss/self.node_count_seen
