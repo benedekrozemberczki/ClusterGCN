@@ -10,6 +10,12 @@ class ClusteringMachine(object):
     Clustering the graph, feature set and target.
     """
     def __init__(self, args, graph, features, target):
+        """
+        :param args:
+        :param graph:
+        :param features:
+        :param target:
+        """
         self.args = args
         self.graph = graph
         self.features = features
