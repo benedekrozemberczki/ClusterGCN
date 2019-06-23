@@ -8,14 +8,23 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import accuracy_score
 
 class ClusterGCNTrainer(object):
-     
+    """
+    Training a ClusterGCN.
+    """
     def __init__(self, args, clustering_machine):
+        """
+        :param ags: Arguments object.
+        :param clustering_machine:
+        """  
         self.args = args
         self.clustering_machine = clustering_machine
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.create_model()
 
     def create_model(self):
+        """
+        Creating a StackedGCN and transferring to CPU/GPU.
+        """
         self.model = StackedGCN(self.args, self.clustering_machine.feature_count, self.clustering_machine.class_count)
         self.model = self.model.to(self.device)
 
