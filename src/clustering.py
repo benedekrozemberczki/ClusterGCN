@@ -79,6 +79,9 @@ class ClusteringMachine(object):
             self.sg_targets[cluster] = self.target[self.sg_nodes[cluster],:]
 
     def transfer_edges_and_nodes(self):
+        """
+        Transfering the data to PyTorch format.
+        """
         for cluster in self.clusters:
             self.sg_nodes[cluster] = torch.LongTensor(self.sg_nodes[cluster])
             self.sg_edges[cluster] = torch.LongTensor(self.sg_edges[cluster]).t()
