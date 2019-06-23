@@ -65,7 +65,7 @@ The training of a ClusterGCN model is handled by the `src/main.py` script which 
 #### Input and output options
 ```
   --edge-path       STR    Edge list csv.         Default is `input/edges.csv`.
-  --features-path   STR    Features json.         Default is `input/features.csv`.
+  --features-path   STR    Features csv.         Default is `input/features.csv`.
   --target-path     STR    Target classes csv.    Default is `input/target.csv`.
 ```
 #### Model options
