@@ -1,8 +1,8 @@
 import torch
-from clustering import ClusteringMachine
 from parser import parameter_parser
-from utils import tab_printer, graph_reader, feature_reader, target_reader
+from clustering import ClusteringMachine
 from clustergcn import ClusterGCNTrainer
+from utils import tab_printer, graph_reader, feature_reader, target_reader
 
 def main():
     """
