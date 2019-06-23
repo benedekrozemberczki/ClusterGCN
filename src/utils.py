@@ -2,8 +2,8 @@ import torch
 import numpy as np
 import pandas as pd
 import networkx as nx
-from scipy.sparse import coo_matrix
 from texttable import Texttable
+from scipy.sparse import coo_matrix
 
 def tab_printer(args):
     """
