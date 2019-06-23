@@ -25,8 +25,6 @@ class StackedGCN(torch.nn.Module):
         predictions = torch.nn.functional.log_softmax(features, dim=1)
         return predictions
 
-        
-
 class ListModule(torch.nn.Module):
     """
     Abstract list layer class.
