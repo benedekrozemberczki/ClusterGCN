@@ -1,6 +1,6 @@
 ClusterGCN
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cluster-gcn-an-efficient-algorithm-for-1/node-classification-on-pubmed)](https://paperswithcode.com/sota/node-classification-on-pubmed?p=cluster-gcn-an-efficient-algorithm-for-1)
-<img src="https://img.shields.io/badge/stars-70+-blue.svg"/>
+<img src="https://img.shields.io/badge/stars-80+-blue.svg"/>
 <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
 ============================================
 A PyTorch implementation of "Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks" (KDD 2019).
