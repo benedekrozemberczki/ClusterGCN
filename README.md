@@ -1,8 +1,8 @@
 ClusterGCN
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cluster-gcn-an-efficient-algorithm-for-1/node-classification-on-pubmed)](https://paperswithcode.com/sota/node-classification-on-pubmed?p=cluster-gcn-an-efficient-algorithm-for-1)
-![GitHub stars](https://img.shields.io/github/stars/benedekrozemberczki/diff2vec.svg?style=plastic)
-![GitHub forks](https://img.shields.io/github/forks/benedekrozemberczki/diff2vec.svg?color=blue&style=plastic)
-![License](https://img.shields.io/github/license/benedekrozemberczki/diff2vec.svg?color=blue)
+![GitHub stars](https://img.shields.io/github/stars/benedekrozemberczki/ClusterGCN.svg?style=plastic)
+![GitHub forks](https://img.shields.io/github/forks/benedekrozemberczki/ClusterGCN.svg?color=blue&style=plastic)
+![License](https://img.shields.io/github/license/benedekrozemberczki/ClusterGCN.svg?color=blue)
 ============================================
 A PyTorch implementation of "Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks" (KDD 2019).
 <p align="center">
