@@ -60,4 +60,3 @@ def parameter_parser():
     parser.set_defaults(layers = [16, 16, 16])
     
     return parser.parse_args()
-
