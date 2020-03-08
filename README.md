@@ -35,10 +35,10 @@ torch              0.4.1
 torch-geometric    0.3.1
 metis              0.2a.4
 scikit-learn       0.20
-torch_spline_conv == 1.0.4
-torch_sparse == 0.2.2
-torch_scatter == 1.0.4
-torch_cluster == 1.1.5 (strict)
+torch_spline_conv  1.0.4
+torch_sparse       0.2.2
+torch_scatter      1.0.4
+torch_cluster      1.1.5
 ```
 
 Installing metis on Ubuntu:
