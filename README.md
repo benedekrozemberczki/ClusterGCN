@@ -121,7 +121,7 @@ Training a random clustered model:
 $ python src/main.py --clustering-method random
 ```
 
--------------------------------------------------------
+--------------------------------------------
 
 **License**
 
