@@ -121,8 +121,6 @@ Training a random clustered model:
 $ python src/main.py --clustering-method random
 ```
 
---------------------------------------------
-
 **License**
 
 - [GNU](https://github.com/benedekrozemberczki/ClusterGCN/blob/master/LICENSE)
