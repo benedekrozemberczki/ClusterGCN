@@ -122,7 +122,7 @@ $ python src/main.py --clustering-method random
 ```
 
 
--------------------------
+----------------------
 
 **License**
 
